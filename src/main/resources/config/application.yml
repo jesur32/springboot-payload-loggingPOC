@@ -1,0 +1,32 @@
+logging:
+  level:
+     org.springframework.web.filter.CommonsRequestLoggingFilter : DEBUG
+
+spring:
+   profiles:
+     active: ${PROFILES:default}
+   application:
+        name: #project.artifactId#
+
+
+info:
+    project:
+        name: #project.artifactId#
+        version: #project.version#
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /
+      path-mapping:
+         health: /jesu/healthcheck
+
+
+server:
+    port: ${PORT:8080}
+    compression:
+       enabled: ${COMPRESSION_ENABLED:true}
+       mime-types: application/json
